@@ -1,4 +1,5 @@
 import sys
+import os
 from dataclasses import dataclass
 
 import numpy as np 
@@ -10,13 +11,13 @@ from sklearn.preprocessing import OneHotEncoder,StandardScaler
 
 from src.exceptions import CustomException
 from src.logger import logging
-import os
 
 from src.utils import save_object
 
+Artifact_path = os.path.join("artifacts","preprocessor.pkl")
 @dataclass
-class DataTransformationConfig:
-    preprocessor_obj_file_path: str = os.path.join('artifacts',"proprocessor.pkl")
+class DataTransformationConfiguration:
+    preprocessor_obj_file_path: str = Artifact_path
 
 class DataTransformation:
     def __init__(self):
